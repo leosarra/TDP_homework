@@ -1,0 +1,108 @@
+<!-- 4 -->
+<html><HEAD><TITLE>Domande di esame - Compito 4</TITLE><head><body>
+<center><h2>Domande di esame - Compito 4</h2></center><hr>
+<center><h3><b>Domanda 1</b></h3></center>
+<domanda>
+Si consideri il seguente frammento di codice:
+<pre>
+double x=5.5;
+{
+int x = (int)x;
+}
+printf("%f",x);
+</pre>
+Quale delle seguenti affermazioni &egrave; corretta?
+
+<ul>
+<li><b>A</b> Si verifica un errore in fase di esecuzione in quanto l'operazione di cast da double a int &egrave; errata.
+</li>
+<li><b>B</b> Si verifica un errore di compilazione in quanto la variabile x &egrave; definita due volte.
+</li>
+<li><b>C</b> L'istruzione printf stampa 5.
+</li>
+<li><b>D</b> L'istruzione printf stampa 5.5.
+</li>
+</ul>
+<hr><center><h3><b>Domanda 2</b></h3></center>
+<domanda>
+Si consideri la seguente riga di codice C:
+<pre>
+void f(int x, int y);
+</pre>
+Una sola delle seguenti affermazioni &egrave; corretta:
+
+<ul>
+<li><b>A</b> La riga contiene la definizione della funzione f.
+</li>
+<li><b>B</b> La riga definisce una funzione che non effettua nessuna operazione.
+</li>
+<li><b>C</b> La riga genera un errore a tempo di compilazione in quanto &egrave; assente il corpo della funzione f.
+</li>
+<li><b>D</b> La riga contiene la dichiarazione della funzione f.
+</li>
+</ul>
+<hr><center><h3><b>Domanda 3</b></h3></center>
+<domanda>
+Si consideri la seguente funzione:
+<pre>
+void f(int **mat) {
+    ...
+}
+</pre>
+Una sola delle seguenti affermazioni &egrave; vera. Quale? 
+
+<ul>
+<li><b>A</b> La funzione pu&ograve; essere invocata passando come argomento una qualsiasi matrice (allocata staticamente o dinamicamente), ma non &egrave; in grado di fare operazioni sulla matrice in quanto non sono definite le sue dimensioni.
+<tt>mat</tt> non &grave; inizializzata.
+</li>
+<li><b>B</b> La funzione pu&ograve; essere invocata passando come argomento una qualsiasi matrice (allocata staticamente o dinamicamente) e pu&ograve; eseguire qualsiasi operazione sulla matrice.
+<tt>mat</tt>.
+</li>
+<li><b>C</b> La funzione pu&ograve; essere invocata passando come argomento una matrice allocata dinamicamente, ma non &egrave; in grado di fare operazioni sulla matrice in quanto non sono definite le sue dimensioni.
+</li>
+<li><b>D</b> La funzione pu&ograve; essere invocata passando come argomento una matrice allocata dinamicamente e pu&ograve; eseguire qualsiasi operazione sulla matrice.
+</li>
+</ul>
+<hr><center><h3><b>Domanda 4</b></h3></center>
+<domanda>
+Si considerino le seguenti definizioni:
+
+<pre>
+typedef int TipoInfoSCL;
+
+struct ElemSCL{
+  TipoInfoSCL info;
+  struct ElemSCL* next;
+};
+
+typedef struct ElemSCL TipoNodoSCL;
+typedef TipoNodoSCL * TipoSCL;
+
+void cosaFaSCL(TipoSCL * scl, TipoInfoSCL e) {
+	*scl = (TipoNodoSCL*) malloc(sizeof(TipoNodoSCL));
+	(*scl)->info = e;
+	(*scl)->next = NULL;
+}
+</pre>
+
+ed il seguente frammento di programma:
+
+<pre>
+scl1 = NULL; 
+cosaFaSCL(&scl1,3);
+cosaFaSCL(&scl1,5);
+</pre>
+
+Una sola delle seguenti affermazioni &egrave; corretta. Quale?
+
+<ul>
+<li><b>A</b> Il frammento di programma provoca un errore a tempo di esecuzione.
+</li>
+<li><b>B</b> Il frammento di programma viene eseguito correttamente e la SCL <tt>scl1</tt> rappresenta la lista [3, 5].
+</li>
+<li><b>C</b> Il frammento di programma viene eseguito correttamente e la SCL <tt>scl1</tt> rappresenta la lista [5].
+</li>
+<li><b>D</b> Il frammento di programma viene eseguito correttamente e la SCL <tt>scl1</tt> rappresenta la lista [5, 3].
+</li>
+</ul>
+</body></html>

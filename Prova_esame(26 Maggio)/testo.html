@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <title></title>
+  </head>
+  <body>
+    <p></p>
+    <h1>Esame di Tecniche di Programmazione del 11/09/2015</h1>
+    <p></p>
+    <h3>Istruzioni per lo svolgimento della prova:</h3>
+    <ul>
+      <li>Inserire nel file <span style="font-family: monospace;">studente.txt</span>
+        i dati personali richiesti (<strong>matricola, nome e cognome</strong>)
+        senza toccare altre parti del file, quindi salvare e chiudere il file.</li>
+    </ul>
+    <ul>
+      <li>All’esercizio i è associata la directory <span style="font-family: monospace;">esercizio{i}</span>,
+        contenente i file necessari allo svolgimento dell’esercizio. Ciascun
+        esercizio deve essere svolto modificando esclusivamente il file <span style="font-family: monospace;">esercizio{i}.h</span>
+        (se necessario) ed <span style="font-family: monospace;">esercizio{i}.c</span>
+        presenti nella directory corrispondente. Nessun file per nessun motivo
+        deve essere spostato dalla directory in cui si trova. Nessun altro file
+        deve essere modificato. Non devono essere creati ulteriori file.</li>
+    </ul>
+    <ul>
+      <li>Il file contenente il programma principale di ciascun esercizio è <span
+          style="font-family: monospace;">test_esercizio{i}.c</span>. Tale file
+        deve essere compilato usando il <span style="font-family: monospace;">Makefile</span>
+        fornito nella directory, ed il corrispondente eseguibile (<span style="font-family: monospace;">test_esercizio{i}</span>)
+        lanciato per eseguire i test di correttezza e conoscerne l’esito. Il
+        file <span style="font-family: monospace;">test_esercizio{i}.c</span>
+        non deve essere modificato.</li>
+    </ul>
+    <ul>
+      <li>Alla fine del tempo concesso per svolgere l' esame o, se lo avete
+        terminato prima dello scadere del tempo, dovete eseguire lo <span style="font-weight: bold;">script
+          di consegna dell' esame</span>. <span style="font-weight: bold;">La
+          consegna può essere effettuata una ed una volta sola</span>, per cui
+        consegnate solo quando siete sicuri di volerlo fare. Lo script è fornito
+        insieme alla documentazione dell' esame e per eseguirlo basterà andare
+        tramite terminale nella cartella dove si trova lo script <span style="font-family: monospace;">consegna_esame.sh</span>
+        e avviarlo da linea di comando. Il comando da lanciare risulterà il
+        seguente: "<span style="font-family: monospace;">bash
+          ./consegna_esame.sh</span>". <span style="font-weight: bold;">Lo
+          script di consegna deve essere eseguito dalla directory in cui esso si
+          trova, in caso contrario lancerà un errore</span>. Una volta avviato
+        lo script controllate che la consegna sia andata a buon fine <span style="font-weight: bold;">verificando</span>
+        che sul terminale venga stampato un output simile al seguente:</li>
+    </ul>
+    <p>&nbsp;&nbsp; <span style="font-family: monospace;">&nbsp;&nbsp;&nbsp;
+        local: matricola_cognome_nome_hostname.tar.gz remote:
+        uploads/matricola_cognome_nome_hostname.tar.gz<br>
+        &nbsp;&nbsp;&nbsp; &nbsp; 200 PORT command successful. Consider using
+        PASV.<br>
+        &nbsp;&nbsp;&nbsp; &nbsp; 150 Ok to send data.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 226 Transfer complete. 4886 bytes sent in
+        0.00 secs (113606.8 kB/s)<br>
+        &nbsp; &nbsp;&nbsp;&nbsp; 221 Goodbye.</span></p>
+    <ul>
+      <li>Verranno corretti esclusivamente gli esercizi la cui compilazione dia
+        esito positivo. In caso contrario verrà assegnato un punteggio nullo. Se
+        non verrà eseguito lo script di consegna dell' esame esso non verrà
+        corretto (è equivalente a non aver consegnato il compito a fine esame).</li>
+    </ul>
+    <ul>
+      <li>Per eventuali problemi o dubbi, chiedere al docente.</li>
+    </ul>
+    <p><br>
+    </p>
+    <h2>Esercizio 1</h2>
+    <p>Sia data la seguente struttura Mat<span style="font-family: monospace;"><br>
+      </span></p>
+    <p><span style="font-family: monospace;">typedef struct Mat {<br>
+        &nbsp; int rows; // numero di righe<br>
+        &nbsp; int cols; // numero di colonne<br>
+        &nbsp; float** row_ptrs; // puntatori alle righe<br>
+        } Mat;</span></p>
+    <p>Implementare la seguente funzione C:</p>
+    <ul>
+      <li><span style="font-family: monospace;">Mat* matrixScale(Mat* m, int
+          block_size);</span></li>
+    </ul>
+    <p>che dato&nbsp; input un puntatore ad una matrice <span style="font-family: monospace;">m</span>,
+      avente un numero di righe e colonne che e’ multiplo di <span style="font-family: monospace;">block_size</span>,
+      restituisca una nuova matrice.<br>
+      <br>
+      La matrice restituita deve: </p>
+    <ul>
+      <li>avere dimensione (<span style="font-family: monospace;">m-&gt;rows /
+          block_size,</span> <span style="font-family: monospace;">m-&gt;cols /
+          block_size</span>);</li>
+    </ul>
+    <ul>
+      <li>La componente (<span style="font-family: monospace;">i</span>, <span
+          style="font-family: monospace;">j</span>) della matrice deve contenere
+        la media dei valori di <span style="font-family: monospace;">m</span>,&nbsp;
+        che verificano le seguenti condizioni: </li>
+    </ul>
+    <ul>
+      <ul>
+        <li>numero di riga compreso tra <span style="font-family: monospace;">i
+            * block_size</span> ed <span style="font-family: monospace;">(i +
+            1) * block_size - 1</span>; </li>
+      </ul>
+    </ul>
+    <ul>
+      <ul>
+        <li>numero di colonna compreso tra <span style="font-family: monospace;">j
+            * block_size</span> e <span style="font-family: monospace;">(j + 1)
+            * block_size - 1</span>.</li>
+      </ul>
+    </ul>
+    <p>Si ricorda che la media di un insieme di valori e’ pari alla loro somma,
+      divisa per il numero di elementi
+      nell’insieme.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+    <p>Per l'allocazione della matrice da ritornare lo studente può avvalersi
+      dell'uso della funzione già esistente:</p>
+    <p><span style="font-family: monospace;">Mat* Mat_alloc(int rows, int cols);</span></p>
+    <p>che dato in input il numero di righe <span style="font-family: monospace;">rows</span>,
+      ed di colonne <span style="font-family: monospace;">cols</span>,
+      restituisce un puntatore ad una matrice di tale dimensione.</p>
+    <h3>Esempio</h3>
+    <p>Data una struttura <span style="font-family: monospace;">Mat m</span>
+      che rappresenta la seguente matrice <span style="font-family: monospace;">4x6</span>:<span
+        style="font-family: monospace;"><br>
+      </span></p>
+    <p><span style="font-family: monospace;">3 1 1 1 8 4<br>
+        1 3 1 1 6 6<br>
+        2 1 2 4 2 2<br>
+        1 2 4 2 2 2</span><br>
+      <br>
+      richiamando la linea di codice:<br>
+      <br>
+      <span style="font-family: monospace;">Mat* result = matrixScale(m, 2);</span><br>
+      <br>
+      la variabile <span style="font-family: monospace;">result</span> dovrà
+      contenere il puntatore ad una matrice <span style="font-family: monospace;">2x3</span>,
+      con i seguenti valori:<br>
+      <br>
+      <span style="font-family: monospace;">2&nbsp;&nbsp;&nbsp; 1&nbsp; 6<br>
+        1.5&nbsp; 3&nbsp; 2</span></p>
+    <p><br>
+      <span style="font-family: monospace;"></span><span style="font-family: monospace;"></span></p>
+    <p></p>
+    <h2>Esercizio 2</h2>
+    <p>Sia data una lista i cui elementi appartengono alla seguente struttura <span
+        style="font-family: monospace;">NodoSCL</span>:<br>
+      <br>
+      <span style="font-family: monospace;">struct NodoSCL {<br>
+        &nbsp; float v;<br>
+        &nbsp; int row;<br>
+        &nbsp; int col;<br>
+        &nbsp; struct NodoSCL* next;<br>
+        };<br>
+        typedef NodoSCL* TipoSCL;</span></p>
+    <p>Si realizzi la funzione</p>
+    <ul>
+      <li><span style="font-family: monospace;">ListElement* lowerValues(Mat* m,
+          float value);</span></li>
+    </ul>
+    <p>che, dato il puntatore ad una matrice <span style="font-family: monospace;">m</span>
+      definita come nell’esercizio precedente, ed un valore float <span style="font-family: monospace;">v</span>,
+      restituisce una lista in cui ciascun elemento contiene gli indici di riga
+      e colonna ed il valore di un elemento di <span style="font-family: monospace;">m</span>
+      che ha valore strettamente minore di <span style="font-family: monospace;">v</span>.</p>
+    <h3>Esempio</h3>
+    <p>Data una struttura <span style="font-family: monospace;">Mat m</span>
+      che rappresenta la seguente matrice <span style="font-family: monospace;">2x3</span>:<span
+        style="font-family: monospace;"><br>
+      </span></p>
+    <p><span style="font-family: monospace;">3 1 2 <br>
+        1 3 1.5<br>
+      </span><br>
+      l’esecuzione della istruzione seguente<br>
+      <br>
+      <span style="font-family: monospace;">ListElement* l = lowerValues(m, 2.5)</span>;<br>
+      <br>
+      dovrà assegnare alla variabile <span style="font-family: monospace;">l</span>
+      il puntatore alla lista:<br>
+      <br>
+      <span style="font-family: monospace;">[v = 1, row = 0, col = 1] -&gt; [v =
+        2, row = 0, col = 2] -&gt; [v = 1, row = 1, col = 0] -&gt; [v = 1.5, row
+        = 2, col = 2]</span><br>
+      <br>
+      Si noti che gli elementi contenuti nella lista devono essere ordinati per
+      numero di riga e per numero di colonna (nell’ordine ottenuto con una
+      scansione della matrice per righe).</p>
+    <p><br>
+      <span style="font-family: monospace;"></span></p>
+    <p></p>
+    <h2>Esercizio 3</h2>
+    <p>Con riferimento alla struttura SCL descritta di seguito<span style="font-family: monospace;"><br>
+      </span></p>
+    <p><span style="font-family: monospace;">struct NodoSCL {<br>
+        &nbsp; int info;<br>
+        &nbsp; struct NodoSCL* next;<br>
+        };<br>
+        typedef NodoSCL* TipoSCL;</span></p>
+    <p> implementare la seguente funzione <strong>ricorsiva</strong> C:</p>
+    <ul>
+      <li><span style="font-family: monospace;">int* integralVector(int* length,
+          TipoSCL src);</span></li>
+    </ul>
+    <p><br>
+      che dati una lista <span style="font-family: monospace;">src</span>, ed
+      un puntatore ad un&nbsp; intero <span style="font-family: monospace;">length</span>,
+      restituisca un array di dimensione pari a quella della lista, e scriva nel
+      parametro <span style="font-family: monospace;">*length</span> il valore
+      della lunghezza della lista (e quindi pari al numero di elementi
+      dell’array).<br>
+      <br>
+      La componente dell’array in posizione <span style="font-family: monospace;">i</span>
+      deve contenere la somma di tutti gli elementi della lista in posizioni
+      comprese tra <span style="font-family: monospace;">0</span> ed <span style="font-family: monospace;">i</span>.</p>
+    <h3>Esempio</h3>
+    <p>Sia <span style="font-family: monospace;">src</span> la seguente
+      sequenza<span style="font-family: monospace;"><br>
+      </span></p>
+    <p><span style="font-family: monospace;">1 2 -1 1 0 1 1</span></p>
+    <p>L’esecuzione di:</p>
+    <p><span style="font-family: monospace;">int length;<br>
+        int* v =integralVector(&amp;length, src);</span></p>
+    <p>produce in <span style="font-family: monospace;">v</span> il puntatore
+      ad un array contenente i seguenti elementi:<span style="font-family: monospace;"><br>
+      </span></p>
+    <p><span style="font-family: monospace;">1 3 2 3 3 4 5</span><br>
+      <br>
+      e <span style="font-family: monospace;">length</span> deve valere <span
+        style="font-family: monospace;">7</span>.</p>
+    <p><br>
+      <span style="font-family: monospace;"></span></p>
+  </body>
+</html>
