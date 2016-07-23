@@ -1,0 +1,71 @@
+/*Ancora sui file*/
+
+/*File: operazioni
+  - apertura -> chiedo al sistema un puntatore ad un FILE* associato
+                ad una path su disco
+		posso aprire un file in
+		- scrittura
+		- lettura
+		- entrambe
+		
+  - chiusura -> deassocio l'oggetto file dalla path 
+                a quel punto il FILE* diventa invalido
+
+  - lettura 
+	  scanf( <argomenti >)  diventa
+	  fscanf( <file aperto in lettura>, <argomenti>)
+
+- scrittura
+
+	  printf(<argomenti>) diventa
+	  fprintf( <file aperto in scrittura>, <argomenti>)
+
+	 - vedere se un file e' finito
+	  feof(<file aperto in lettura>) != 0 se file finito
+
+*/
+
+/*matrici
+
+  array di array
+
+  array di array contigui
+
+  matrici sullo stack
+
+  passaggio di matrici come valori di funzione
+
+  operazioni comuni
+  allocazione
+  - caso array di array
+  - caso array di array contigui
+
+  deallocazione
+  - caso array di array
+  - caso array di array contigui
+  
+  lettura (da file)
+
+  scrittura (su file)
+
+  stampa
+
+  copia
+  
+
+  trasposizione
+
+  estrazione di un blocco
+
+  sovrascrittura di un blocco
+
+  altre operazioni (e.g. algebra lineare)
+  prodotto matrice-vettore;
+  somma matrice-matrice;
+  scambio di righe
+  somma di una riga ad un'altra, moltiplicata per uno scalare
+  estrazione del massimo in una colonna
+
+*/
+
+
