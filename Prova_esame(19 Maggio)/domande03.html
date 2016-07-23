@@ -1,0 +1,94 @@
+<!-- 3 -->
+<html><HEAD><TITLE>Domande di esame - Compito 3</TITLE><head><body>
+<center><h2>Domande di esame - Compito 3</h2></center><hr>
+<center><h3><b>Domanda 1</b></h3></center>
+<domanda>
+Si consideri la seguente funzione C:
+<pre>
+void scambia(int *a, int *b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+</pre>
+Una sola delle seguenti affermazioni &egrave; vera. Quale? 
+
+
+<ul>
+<li><b>A</b> La funzione provoca un errore di compilazione.
+</li>
+<li><b>B</b> La funzione scambia il contenuto della memoria puntata da <tt>a</tt> con il contenuto della memoria puntata da <tt>b</tt>.
+</li>
+<li><b>C</b> La funzione scambia tutti gli elementi dei due vettori <tt>a</tt> e <tt>b</tt>.
+</li>
+<li><b>D</b> La funzione non esegue alcuna operazione sui contenuti della memoria puntata da <tt>a</tt> e <tt>b</tt>.
+</li>
+</ul>
+<hr><center><h3><b>Domanda 2</b></h3></center>
+<domanda>
+Se una variabile <tt>x</tt> viene dichiarata 
+all'interno di una funzione <tt>f</tt>, allora:
+
+<ul>
+<li><b>A</b> Il tipo di <tt>x</tt> deve essere necessariamente primitivo.
+</li>
+<li><b>B</b> Solo le funzioni dichiarate dopo di <tt>f</tt> possono  accedere a <tt>x</tt>.
+</li>
+<li><b>C</b> Tutte le funzioni del programma possono accedere a <tt>x</tt>.
+</li>
+<li><b>D</b> Solo la funzione <tt>f</tt>  pu&ograve; accedere a <tt>x</tt>.
+</li>
+</ul>
+<hr><center><h3><b>Domanda 3</b></h3></center>
+<domanda>
+Una sola delle seguenti affermazioni sul passaggio dei parametri in C &egrave; vera. Quale? <br>
+Quando una funzione viene invocata:
+
+<ul>
+<li><b>A</b> I parametri passati non devono eccedere i parametri dell'intestazione della funzione, ma possono anche essere di meno.
+</li>
+<li><b>B</b> Le modifiche apportate ai parametri all'interno della funzione sono visibili al modulo chiamante.
+</li>
+<li><b>C</b> I parametri formali dell'invocazione vengono copiati nei corrispondenti parametri attuali dell'intestazione della funzione.
+</li>
+<li><b>D</b> I parametri attuali dell'invocazione vengono copiati nei corrispondenti parametri formali dell'intestazione della funzione.
+</li>
+</ul>
+<hr><center><h3><b>Domanda 4</b></h3></center>
+<domanda>
+Si considerino le seguenti definizioni:
+
+<pre>
+typedef struct ElemSCL TipoNodoSCL;
+typedef  TipoNodoSCL * TipoSCL;
+
+void addSCL(TipoSCL * scl, TipoInfoSCL e){
+	TipoSCL temp = *scl;
+	*scl = (TipoNodoSCL*) malloc(sizeof(TipoNodoSCL));
+	(*scl)->info = e;
+	(*scl)->next = temp;
+}
+</pre>
+
+ed il seguente frammento di programma:
+
+<pre>
+TipoSCL scl1 = NULL;
+addSCL(&scl1,3);
+addSCL(&scl1,5);
+scl1->next=scl1->next->next;
+</pre>
+
+Una sola delle seguenti affermazioni corretta. Quale? 
+
+<ul>
+<li><b>A</b> Il nodo etichettato con 5 viene eliminato dalla SCL <tt>scl1</tt>.
+</li>
+<li><b>B</b> Il frammento di programma viene eseguito correttamente e la SCL memorizzata nella variabile <tt>scl1</tt> non viene modificata.
+</li>
+<li><b>C</b> La costruzione della SCL non avviene in modo corretto e la stampa della struttura collegata <tt>scl1</tt> causerebbe un errore in esecuzione. 
+</li>
+<li><b>D</b> Il nodo etichettato con 3 viene eliminato dalla SCL <tt>scl1</tt>.
+</li>
+</ul>
+</body></html>
