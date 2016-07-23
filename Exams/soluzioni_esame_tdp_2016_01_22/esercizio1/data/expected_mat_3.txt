@@ -1,0 +1,7 @@
+6 9
+d b b b i c e d e 
+b d b b g c g d a 
+c b c e c c c f b 
+b c e c c c c c c 
+c e g i b c d f h 
+b b b c d c e a i 

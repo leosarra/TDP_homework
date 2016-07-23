@@ -1,0 +1,39 @@
+Illustrare sintassi e semantica del costrutto struct in C.
+Discutere le caratteristiche delle strutture dati che si
+possono realizzare, fornendo anche esempi concreti.
+
+===========================================================
+Struct Persona{
+
+int età;
+int altezza;
+char nome;
+}
+
+Le struct permettono di realizzare strutture di qualsiasi tipo.
+Ogni dato all interno della struct non è altro che un parametro
+di un oggetto creato in questo caso dell oggetto "Persona".
+
+Per accedere ai campi è fondamentale usare la sintassi "Persona.età";
+Solo in questa maniera si potrà modificare i campi primitivi della struct.
+
+Possiamo inoltre creare una struct e dargli un nome specifico del tipo
+
+Struct Persona Matteo{
+campi...
+
+}
+
+Posso dichiare una struct anche in questo modo
+struct{
+int altezza}
+nomevariabile1, nomevariabile2;
+
+un ulteriore modo di dichiarazione è
+typedef struct Persona{
+int età;
+}Persona;
+
+Persona in questo modo può essere sia clonata  che usata per un altro scopo.
+Se la struttura presenta puntatori bisogna accedere alla struttura tramite la seguente
+sintassi " Persona->età".

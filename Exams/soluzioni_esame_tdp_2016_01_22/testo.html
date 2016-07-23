@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+  <title></title>
+</head>
+
+<body>
+<p></p>
+
+<h1>Esame di Tecniche di Programmazione del 22/01/2016</h1>
+
+<p></p>
+
+<h3>Istruzioni per lo svolgimento della prova:</h3>
+<ul>
+  <li>Inserire nel file <span
+    style="font-family: monospace;">studente.txt</span> i dati personali
+    richiesti (<strong>matricola, nome e cognome</strong>) senza toccare altre
+    parti del file, quindi salvare e chiudere il file.</li>
+</ul>
+<ul>
+  <li>All’esercizio i è associata la directory <span
+    style="font-family: monospace;">esercizio{i}</span>, contenente i file
+    necessari allo svolgimento dell’esercizio. Ciascun esercizio deve essere
+    svolto modificando esclusivamente il file <span
+    style="font-family: monospace;">esercizio{i}.h</span> (se necessario) ed
+    <span style="font-family: monospace;">esercizio{i}.c</span> presenti nella
+    directory corrispondente. Nessun file per nessun motivo deve essere
+    spostato dalla directory in cui si trova. Nessun altro file deve essere
+    modificato. Non devono essere creati ulteriori file.</li>
+</ul>
+<ul>
+  <li>Il file contenente il programma principale di ciascun esercizio è <span
+    style="font-family: monospace;">test_esercizio{i}.c</span>. Tale file deve
+    essere compilato usando il <span
+    style="font-family: monospace;">Makefile</span> fornito nella directory, ed
+    il corrispondente eseguibile (<span
+    style="font-family: monospace;">test_esercizio{i}</span>) lanciato per
+    eseguire i test di correttezza e conoscerne l’esito. Il file <span
+    style="font-family: monospace;">test_esercizio{i}.c</span> non deve essere
+    modificato.</li>
+</ul>
+<ul>
+  <li>Alla fine del tempo concesso per svolgere l' esame o, se lo avete
+    terminato prima dello scadere del tempo, dovete eseguire lo <span
+    style="font-weight: bold;">script di consegna dell' esame</span>. <span
+    style="font-weight: bold;">La consegna può essere effettuata una ed una
+    volta sola</span>, per cui consegnate solo quando siete sicuri di volerlo
+    fare. Lo script è fornito insieme alla documentazione dell' esame e per
+    eseguirlo basterà andare tramite terminale nella cartella dove si trova lo
+    script <span style="font-family: monospace;">consegna_esame.sh</span> e
+    avviarlo da linea di comando. Il comando da lanciare risulterà il seguente:
+    "<span style="font-family: monospace;">bash ./consegna_esame.sh</span>".
+    <span style="font-weight: bold;">Lo script di consegna deve essere eseguito
+    dalla directory in cui esso si trova, in caso contrario lancerà un
+    errore</span>. Una volta avviato lo script controllate che la consegna sia
+    andata a buon fine <span style="font-weight: bold;">verificando</span> che
+    sul terminale venga stampato un output simile al seguente:</li>
+</ul>
+
+<p>   <span style="font-family: monospace;">    local:
+matricola_cognome_nome_hostname.tar.gz remote:
+uploads/matricola_cognome_nome_hostname.tar.gz<br>
+      200 PORT command successful. Consider using PASV.<br>
+      150 Ok to send data.<br>
+      226 Transfer complete. 4886 bytes sent in 0.00 secs (113606.8 kB/s)<br>
+      221 Goodbye.</span></p>
+<ul>
+  <li>Verranno corretti esclusivamente gli esercizi la cui compilazione dia
+    esito positivo. In caso contrario verrà assegnato un punteggio nullo. Se
+    non verrà eseguito lo script di consegna dell' esame esso non verrà
+    corretto (è equivalente a non aver consegnato il compito a fine esame).</li>
+</ul>
+<ul>
+  <li>Per eventuali problemi o dubbi, chiedere al docente.</li>
+</ul>
+
+<p><br>
+</p>
+
+<h2>Esercizio 1</h2>
+
+<p>Si implementi la seguente funzione: </p>
+
+<p></p>
+
+<p><span style="font-family: monospace;">char** translate_matrix(int rows, int
+cols, int** input, char* v);</span></p>
+
+<p></p>
+
+<p>Ove <code>input</code> e' una matrice avente dimensione <code>rows</code> *
+<code>cols</code>, e <code>v</code> e' un array di caratteri.</p>
+
+<p>La funzione deve ritornare una nuova matrice <code>m</code> di dimensione
+pari a quelle della matrice <code>input</code>, in cui la componente in
+posizione <code>[i</code><code>]</code><code></code><code>[j]</code> deve
+contenere il valore di <code>v</code> nella posizione corrispondente al valore
+(numerico) della matrice in input in posizione <code>[i][j]</code>.</p>
+
+<p>Si assuma che <code>v</code> abbia dimensione maggiore del massimo elemento
+di <code>input</code>, e che <code>input</code> contenga solo elementi
+positivi.</p>
+
+<h3>Esempio</h3>
+
+<p><span style="font-family: monospace;">v = [a b c d e]<br>
+</span></p>
+
+<p><span style="font-family: monospace;">input = </span><span
+style="font-family: monospace;"><br>
+[0 1] <br>
+[2 1]<br>
+</span></p>
+
+<p><span style="font-family: monospace;">m = <br>
+[a b] <br>
+[c b]</span></p>
+
+<p></p>
+
+<h2>Esercizio 2</h2>
+
+<p>Sia data una lista i cui elementi appartengono alla seguente struttura <span
+style="font-family: monospace;">NodoSCL</span>:<br>
+<br>
+<span style="font-family: monospace;">struct NodoSCL {<br>
+  int i;<br>
+  char c;<br>
+  struct NodoSCL* next;<br>
+};<br>
+typedef NodoSCL* TipoSCL;</span></p>
+
+<p></p>
+
+<p>Si implementi la seguente funzione:</p>
+
+<p></p>
+
+<p><code>TipoSCL fetch_elements(TipoSCL l, char* v, int v_dim);</code></p>
+
+<p></p>
+
+<p>che, data in input una lista <code>l</code>, ed un vettore <code>v</code> di
+dimensione <code>v_dim</code>, restituisca una nuova lista
+<code>output_l</code> in cui vengono messi nell'ordine gli elementi contenuti
+nell'array, rimpiazzando il valore del campo '<code>elem-&gt;c</code>' di
+ciascun elemento <code>elem</code> con il valore <code>v[elem-&gt;i]</code>.</p>
+
+<p>Se <code>elem-&gt;i</code> non e' contenuto in <code>v</code>, il
+corrispondente elemento non viene inserito nella lista. </p>
+
+<h3>Esempio</h3>
+
+<p><span style="font-family: monospace;">v = [a b c d e]</span></p>
+
+<p></p>
+
+<p><span style="font-family: monospace;">v_dim = 5;</span></p>
+
+<p></p>
+
+<p><span style="font-family: monospace;">l = [30, 'x'] -&gt; [4, 'x'] -&gt; [0,
+'x'] -&gt; NULL</span></p>
+
+<p><span style="font-family: monospace;"> <br>
+</span></p>
+
+<p><code>output_l = [4, 'e'] -&gt; [0, 'a'] -&gt; NULL</code><code></code></p>
+
+<p></p>
+
+<h2>Esercizio 3</h2>
+
+<p>Si consideri la definizione di lista fornita nell'esercizio precedente,
+implementare la seguente funzione <strong>ricorsiva</strong> C:</p>
+
+<p></p>
+
+<p><code>int count_vowels(TipoSCL l);</code><br>
+</p>
+
+<p>che data una lista <code>l</code> restituisca il numero <code>n</code> di
+elementi di <code>l</code> che contengono una vocale (ovvero una lettera
+nell'insieme <code>'a'</code>, <code>'e'</code>, <code>'i'</code>,
+<code>'o'</code>, <code>'u'</code>.</p>
+
+<h3>Esempio</h3>
+
+<p><span style="font-family: monospace;">l = [3, 'd'] -&gt; [4, 'e'] -&gt; [0,
+'a'] -&gt; NULL</span></p>
+
+<p></p>
+
+<p><code>n = 2</code></p>
+
+<p></p>
+
+<p></p>
+
+<h1><a title="Download Esame" href="esame_tdp_2016_01_22.tar.gz">Download
+Esame</a></h1>
+</body>
+</html>

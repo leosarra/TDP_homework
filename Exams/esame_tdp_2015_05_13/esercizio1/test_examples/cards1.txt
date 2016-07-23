@@ -1,0 +1,3 @@
+2
+Swords	10	Cups	4
+Cups	4	Swords	10

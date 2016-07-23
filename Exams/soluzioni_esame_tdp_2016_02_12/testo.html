@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+  <title></title>
+</head>
+
+<body>
+<p></p>
+
+<h1>Esame di Tecniche di Programmazione del 12/02/2016</h1>
+
+<p></p>
+
+<h3>Istruzioni per lo svolgimento della prova:</h3>
+<ul>
+  <li>Inserire nel file <span
+    style="font-family: monospace;">studente.txt</span> i dati personali
+    richiesti (<strong>matricola, nome e cognome</strong>) senza toccare altre
+    parti del file, quindi salvare e chiudere il file.</li>
+</ul>
+<ul>
+  <li>All’esercizio i è associata la directory <span
+    style="font-family: monospace;">esercizio{i}</span>, contenente i file
+    necessari allo svolgimento dell’esercizio. Ciascun esercizio deve essere
+    svolto modificando esclusivamente il file <span
+    style="font-family: monospace;">esercizio{i}.h</span> (se necessario) ed
+    <span style="font-family: monospace;">esercizio{i}.c</span> presenti nella
+    directory corrispondente. Nessun file per nessun motivo deve essere
+    spostato dalla directory in cui si trova. Nessun altro file deve essere
+    modificato. Non devono essere creati ulteriori file.</li>
+</ul>
+<ul>
+  <li>Il file contenente il programma principale di ciascun esercizio è <span
+    style="font-family: monospace;">test_esercizio{i}.c</span>. Tale file deve
+    essere compilato usando il <span
+    style="font-family: monospace;">Makefile</span> fornito nella directory, ed
+    il corrispondente eseguibile (<span
+    style="font-family: monospace;">test_esercizio{i}</span>) lanciato per
+    eseguire i test di correttezza e conoscerne l’esito. Il file <span
+    style="font-family: monospace;">test_esercizio{i}.c</span> non deve essere
+    modificato.</li>
+</ul>
+<ul>
+  <li>Alla fine del tempo concesso per svolgere l' esame o, se lo avete
+    terminato prima dello scadere del tempo, dovete eseguire lo <span
+    style="font-weight: bold;">script di consegna dell' esame</span>. <span
+    style="font-weight: bold;">La consegna può essere effettuata una ed una
+    volta sola</span>, per cui consegnate solo quando siete sicuri di volerlo
+    fare. Lo script è fornito insieme alla documentazione dell' esame e per
+    eseguirlo basterà andare tramite terminale nella cartella dove si trova lo
+    script <span style="font-family: monospace;">consegna_esame.sh</span> e
+    avviarlo da linea di comando. Il comando da lanciare risulterà il seguente:
+    "<span style="font-family: monospace;">bash ./consegna_esame.sh</span>".
+    <span style="font-weight: bold;">Lo script di consegna deve essere eseguito
+    dalla directory in cui esso si trova, in caso contrario lancerà un
+    errore</span>. Una volta avviato lo script controllate che la consegna sia
+    andata a buon fine <span style="font-weight: bold;">verificando</span> che
+    sul terminale venga stampato un output simile al seguente:</li>
+</ul>
+
+<p>   <span style="font-family: monospace;">    local:
+matricola_cognome_nome_hostname.tar.gz remote:
+uploads/matricola_cognome_nome_hostname.tar.gz<br>
+      200 PORT command successful. Consider using PASV.<br>
+      150 Ok to send data.<br>
+      226 Transfer complete. 4886 bytes sent in 0.00 secs (113606.8 kB/s)<br>
+      221 Goodbye.</span></p>
+<ul>
+  <li>Verranno corretti esclusivamente gli esercizi la cui compilazione dia
+    esito positivo. In caso contrario verrà assegnato un punteggio nullo. Se
+    non verrà eseguito lo script di consegna dell' esame esso non verrà
+    corretto (è equivalente a non aver consegnato il compito a fine esame).</li>
+</ul>
+<ul>
+  <li>Per eventuali problemi o dubbi, chiedere al docente.</li>
+</ul>
+
+<p><br>
+</p>
+
+<h2>Esercizio 1</h2>
+
+<p>Si implementi la seguente funzione C: </p>
+
+<p></p>
+
+<p><span style="font-family: monospace;">int matrix_min(int** dest, int** a,
+int** b, int rows, int cols);</span></p>
+
+<p></p>
+
+<p>Ove <code>a</code> e <code>b</code> <code></code>sono due matrici in input
+aventi dimensione <code>rows</code> * <code>cols</code>.</p>
+
+<p>La funzione deve creare in <code>dest</code> un array contenente gli
+elementi di <code>a</code> che sono minori o uguali ai corrsipondenti valori in
+<code>b</code>. In altre parole, se <code>a[r][c] &lt;= b[r][c]</code> allora
+<code>dest</code> dovrà contenere il valore <code>a[r][c]</code>. La funzione
+deve ritornare la dimensione dell' array <code>dest</code>.</p>
+
+<p>Le matrici devono essere scorse per riga.</p>
+
+<h3>Esempio</h3>
+
+<p><span style="font-family: monospace;">a = </span><span
+style="font-family: monospace;"><br>
+[3 1] <br>
+[6 0]<br>
+</span></p>
+
+<p><span style="font-family: monospace;">b = <br>
+[2 5] <br>
+[4 0]</span></p>
+
+<p><span style="font-family: monospace;">dest = [1 0]<br>
+</span></p>
+
+<p>La funzione restituisce <code>2</code>.</p>
+
+<h2>Esercizio 2</h2>
+
+<p>Le matrici sparse sono particolari matrici in cui molti degli elementi sono
+uguali a zero. In questo esercizio gli elementi diversi da zero di una matrice
+sparsa sono rappresentati con la struttura <code>SparseMatrixElement</code>
+contenente gli indici di riga e colonna (<code>row</code> e <code>col</code>)
+dell' elemento, il suo valore <code>value</code>, ed il campo <code>next</code>
+che punta al prossimo elemento della matrice diverso da zero. Note le
+dimensioni di una matrice sparsa, la si può rappresentare come una lista di
+strutture <code>SparseMatrixElement</code>:</p>
+
+<p></p>
+
+<p><code>struct SparseMatrixElement {</code></p>
+
+<p><code>  int row;                    </code></p>
+
+<p><code>  int col;                    </code></p>
+
+<p><code>  float value;                </code></p>
+
+<p><code>  SparseMatrixElement* next;  </code></p>
+
+<p><code>};</code></p>
+
+<p><code>typedef struct SparseMatrixElement SparseMatrixElement;</code></p>
+
+<p><code>typedef SparseMatrixElement* SparseMatrix;</code></p>
+
+<p></p>
+
+<p>Si implementi la seguente funzione C:</p>
+
+<p></p>
+
+<p><code>float** sparse_to_dense_matrix(SparseMatrix sparse_mat, int rows, int
+cols);</code></p>
+
+<p></p>
+
+<p>ove <code>sparse_mat</code> è una matrice sparsa in input (lista di
+strutture <code>SparseMatrixElement</code>) di dimensioni <code>rows</code> *
+<code>cols</code>. </p>
+
+<p>La funzione deve allocare e restituire in output una nuova matrice
+<code>mat</code>, di dimensione <code>rows</code><code></code> *
+<code>cols</code>,<code></code> in cui gli unici elementi diversi da zero
+corrispondano in valore a quelli contenuti in <code>sparse_mat</code>.</p>
+
+<h3>Esempio</h3>
+
+<p><span style="font-family: monospace;">sparse_mat = [row: 0, col: 0, value:
+1.0] --&gt; [row: 0, col: 2, value: 2.0] --&gt; [row: 1, col: 2, value: 5.0]
+--&gt; [row: 2, col: 2, value: 3.0] --&gt; NULL</span></p>
+
+<p><span style="font-family: monospace;">rows = 3</span></p>
+
+<p><span style="font-family: monospace;">cols = 3</span><span
+style="font-family: monospace;"><br>
+</span></p>
+
+<p><code>mat = </code></p>
+
+<p><code>[1.0 0.0 2.0]</code></p>
+
+<p><code>[0.0 0.0 5.0]</code></p>
+
+<p><code>[0.0 0.0 3.0]</code></p>
+
+<p></p>
+
+<h2>Esercizio 3</h2>
+
+<p>Si consideri la definizione di matrice sparsa dell' esercizio precedente,
+implementare la seguente funzione <strong>ricorsiva</strong> C:</p>
+
+<p></p>
+
+<p><code>int sparse_matrix_contains_element(SparseMatrix sparse_mat, float
+value);</code><br>
+</p>
+
+<p></p>
+
+<p>che data una matrice sparsa in input <code>sparse_mat</code> (lista di
+strutture <code>SparseMatrixElement</code>)  e un valore di ricerca
+<code>value</code>, restituisca <code>1</code> se <code>sparse_mat</code>
+contiene un elemento di valore <code>value</code>, <code>0</code>
+altrimenti.</p>
+
+<h3>Esempio</h3>
+
+<p><span style="font-family: monospace;">parse_mat = [row: 0, col: 0, value:
+1.0] --&gt; [row: 0, col: 2, value: 2.5] --&gt; [row: 1, col: 2, value: 5.0]
+--&gt; [row: 2, col: 2, value: 3.0] --&gt; NULL</span></p>
+
+<p><code>value = 2.5</code></p>
+
+<p>La funzione restituisce <code>1</code>.</p>
+
+<p></p>
+
+<h1><a title="Download Esame" href="esame_tdp_2016_02_12.tar.gz">Download
+Esame</a></h1>
+</body>
+</html>

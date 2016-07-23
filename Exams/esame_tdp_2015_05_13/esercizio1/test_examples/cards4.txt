@@ -1,0 +1,9 @@
+8
+Swords	8	Cups	1
+Cups	1	Swords	8
+Clubs	9	Coins	1
+Coins	1	Clubs	9
+Coins	7	Cups	5
+Cups	5	Coins	7
+Swords	6	Swords	2	
+Swords	2	Swords	6

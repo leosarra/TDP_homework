@@ -1,0 +1,11 @@
+10
+Swords	10	Cups	1
+Cups	1	Swords	10
+Coins	9	Clubs	3
+Clubs	3	Coins	9
+Swords	5	Cups	5
+Cups	5	Swords	5
+Cups	6	Coins	10	
+Coins	10	Cups	6
+Clubs	9	Clubs	5	
+Clubs	5	Clubs	9

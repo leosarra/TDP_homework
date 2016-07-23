@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "esercizio.h"
+
+int* accumulaArray(char* nomefile, int* n){
+	FILE* fp=fopen(nomefile,"r");
+	FILE* new;
+	int numero=0;
+	while(fscanf(fp,"%d",&numero)!=EOF){
+		numero++;
+	}
+	fclose(fp);
+	int* ritorno;
+	printf("Il numero è %d",numero);
+	ritorno=(int*)malloc(sizeof(int)*numero);
+	new=fopen(nomefile,"r");
+	int first=1;
+	int valore=0;
+	for(int i=0;i<numero;i++){
+		if (first==1){
+			fscanf(new,"%d",ritorno[i]);
+			first=0;
+		}
+		else{
+			fscanf(new,"%d",&valore);
+			int valoreprecedente=ritorno[i-1];
+
+			ritorno[i]=valore+ritorno[i-1];
+printf("Ho inserito %d \n",ritorno[i]);
+
+			
+		}
+	}
+	
+	return ritorno;
+}
