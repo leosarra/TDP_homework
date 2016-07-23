@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+void stampaAsterischi(int n, int fill){
+    if (fill>=0){
+        for (int i=0;i<n;i++){ //primo caso
+            printf("*");
+            }
+        }
+    else {
+        printf("*");
+        for (int i=0;i<(n-2);i++){ //secondo caso
+            printf(" ");
+            }
+        printf("*");
+        }
+    }
+    
+int main(){
+    int n=10; //inserisci il numero di elementi della riga
+    int fill=-1; //inserisci numero negativo o positivo
+    stampaAsterischi(n, fill);
+    return 0;
+    }
