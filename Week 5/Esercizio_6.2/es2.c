@@ -6,7 +6,7 @@ int risolviEquazione(float *x1, float *x2, float a, float b, float c){
 double det;
 det=(b*b-4*a*c);
 det=sqrt(det);
-printf("%lf             ",det);
+printf("%lf             \n",det);
 if (det==0){
     *x1=(-b+det)/(2*a);
     printf("%f",*x1);
@@ -40,7 +40,7 @@ int main(){
             }
     if (risultato==1){
             printf(" Le radici sono %f e %f \n",*x1,*x2);
-       
+
         }
     return 0;
     }
