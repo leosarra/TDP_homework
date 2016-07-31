@@ -9,9 +9,9 @@
 
 
 // stampa gli elementi dell'insieme set
-void set_print_test(SetElem *set) { 
+void set_print_test(SetElem *set) {
 if (set==NULL)  {
-    printf("La stringa è vuota");}
+    printf("La stringa Ã¨ vuota");}
     else{
 SetElem * test=set;
 while (test->next!=NULL){
@@ -24,7 +24,7 @@ printf("%d",test->info);
 
 void set_print(SetElem *set) {
     if (set==NULL){
-        printf("La stringa è vuota \n");
+        printf("La stringa Ã¨ vuota \n");
         }
     else{
         if (set->next!=NULL){
@@ -40,7 +40,7 @@ void set_print(SetElem *set) {
 
 
 
-// dato un insieme set, restituisce un valore non nullo (true) se l'insieme e' vuoto, 
+// dato un insieme set, restituisce un valore non nullo (true) se l'insieme e' vuoto,
 // 0 (false) altrimenti
 int is_empty(SetElem *set) {
     if(set==NULL){
@@ -62,9 +62,9 @@ int is_element(SetElem *set, int info) {
             if(set->info==info){
                 return 1;
                 }
-            else{ 
+            else{
                 return is_element(set->next,info);}
-            
+
             }
         else{
             if(set->info==info){
@@ -79,7 +79,7 @@ int is_element(SetElem *set, int info) {
 // (ovvero non contiene elementi duplicati), 0 (false) altrimenti
 int aid_is_set(SetElem *set) {
     if (set==NULL) {
-        printf("L'insieme è vuoto");
+        printf("L'insieme ï¿½ vuoto");
         return 0;}
     else {
         if(set->next!=NULL){
@@ -92,7 +92,7 @@ int aid_is_set(SetElem *set) {
                 return aid_is_set(set->next);}
                 }
         else{
-            
+
             return 1;}
 
         }
@@ -114,7 +114,7 @@ int is_subset(SetElem *sub, SetElem *set) {
     int ris=is_element(set,sub->info);
     if(ris==1){
         if (sub->next==NULL){
-            return 1;}    
+            return 1;}
         return is_subset(sub->next,set);
         }
     else{
@@ -126,10 +126,10 @@ SetElem* reach_the_end(SetElem *set){
     while (prova->next!=NULL) {
         prova=prova->next;}
     return prova;}
-    
-    
+
+
 // dato un insieme set e un valore intero, modifica set aggiungendovi l'elemento info
-// se non e' gia' presente 
+// se non e' gia' presente
 void set_add(SetElem **set, int info) {
     if ((*set)!=NULL){
         int ris=is_element((*set), info);
@@ -162,8 +162,8 @@ SetElem* reach_the_right_ptr(SetElem *set,int info){
     while (prova->next->info!=info) {
         prova=prova->next;}
     return prova;}
-    
-    
+
+
 void set_del(SetElem **set, int info) {
     if ((*set)!=NULL){
         int ris=is_element((*set), info);
@@ -180,7 +180,7 @@ void set_del(SetElem **set, int info) {
 }
 }
 
-// dato un insieme src e un insieme dest, inserisce nell'insieme dest gli elementi di src 
+// dato un insieme src e un insieme dest, inserisce nell'insieme dest gli elementi di src
 // che non sono gia' presenti in dest
 void set_union(SetElem *src, SetElem **dest) {
         SetElem* clone=src;
@@ -197,7 +197,7 @@ void set_union(SetElem *src, SetElem **dest) {
 }
 
 
-// dato un insieme src e un insieme dest, elimina dall'insieme dest gli eventuali elementi 
+// dato un insieme src e un insieme dest, elimina dall'insieme dest gli eventuali elementi
 // presenti anche in src
 void set_difference(SetElem *src, SetElem **dest) {
     SetElem* clone=src;
@@ -212,5 +212,3 @@ void set_difference(SetElem *src, SetElem **dest) {
         }
     }
 }
-
-
