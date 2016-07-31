@@ -4,8 +4,8 @@ TipoSCL lowerValues(Mat* m, float value) {
     TipoSCL elem=(TipoSCL)malloc(sizeof(NodoSCL));
     TipoSCL inizio=elem;
     TipoSCL fine=elem;
-    int controllati=0;
-    
+    int analyzed=0;
+
     for (int i=0;i<m->rows;i++){
         for (int j=0;j<m->cols;j++){
             if (m->row_ptrs[i][j]<value){
@@ -15,14 +15,12 @@ TipoSCL lowerValues(Mat* m, float value) {
                 fine=elem;
                 (*elem).next=(TipoSCL)malloc(sizeof(NodoSCL));
                 elem=(*elem).next;
-                controllati++;
+                analyzed++;
             }
         }
     }
     (*fine).next=NULL;
-    if (controllati==0){
+    if (analyzed==0){
         return NULL;}
     else {return inizio;}
 }
-
-

@@ -3,7 +3,7 @@
 int matrix_block_sum(Mat* dest, Mat* src, int start_row, int start_col) {
     int rows_src=src->rows;
     int cols_src=src->cols;
-    int copiati=0;
+    int changed=0;
     if (start_row+rows_src<0 || start_col+cols_src <0){
         return 0;}
     if (start_row+rows_src>dest->rows || start_col+cols_src>dest->cols){
@@ -14,10 +14,10 @@ int matrix_block_sum(Mat* dest, Mat* src, int start_row, int start_col) {
         for (int j=start_col;j<start_col+rows_src;j++){
             dest->row_ptrs[i][j]+=src->row_ptrs[riga][colonna];
             colonna++;
-            copiati++;}
+            changed++;}
             colonna=0;
             riga++;
-            
+
             }
-    return copiati;
+    return changed;
 }
